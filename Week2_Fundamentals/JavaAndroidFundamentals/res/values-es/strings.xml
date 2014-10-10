@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="textView1">Datos Guardados</string>
+    <string name="button2">Guardar Texto</string>
+    <string name="textView2">Textos Guardados</string>
+    <string name="button1">Mostrar Texto</string>
+    
+</resources>
