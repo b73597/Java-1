@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">E_Davila_AdvancedViews</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="no_data">There is No Data To Display</string> <!-- Add Value to main.xml file as well -->
+
+</resources>
