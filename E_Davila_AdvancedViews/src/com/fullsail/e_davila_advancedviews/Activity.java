@@ -1,9 +1,19 @@
 package com.fullsail.e_davila_advancedviews;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,14 +29,32 @@ import com.fullsail.e_davila_advancedviews.R;
 public class Activity extends ListActivity implements OnItemClickListener {
 	
 	  ArrayList<HashMap<String,String>> gameCollection = new ArrayList<HashMap<String, String>>();
-
+	  
+	
+	  	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
+     
+     		
+     	
+     		
+     	
+     		
+     		
+     		
+     		
+     		
+     		
+        //List View declarations
         ListView listView=getListView();
         listView.setOnItemClickListener(this);
+        
+        
+        
+       
         
         
         //Populate view with data
@@ -46,6 +74,20 @@ public class Activity extends ListActivity implements OnItemClickListener {
         System.out.println(gameCollection);
         setListAdapter(adapter);
     }
+    
+    protected boolean isOnline()
+		{
+			ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		// Getting our active network information.
+			NetworkInfo netInfo = cm.getActiveNetworkInfo();
+		// We have a network connection, but not necessarily a data connection.
+			if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+				return true;
+			
+		} else {
+				return false;
+		}
+		}
     
     //Create Private Method - Returns HashMap with key-value pairs
     private HashMap<String, String> displayVideoGame(String key, String value)
@@ -80,6 +122,12 @@ public class Activity extends ListActivity implements OnItemClickListener {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+        	if (isOnline()) {
+        		//requestData
+				
+			} else {
+				Toast.makeText(this, "Network Is not available", Toast.LENGTH_LONG).show();
+			}
             return true;
         }
         return super.onOptionsItemSelected(item);
